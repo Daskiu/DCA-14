@@ -1,12 +1,10 @@
-async function nombrar_pokemones() {
-	try {
-		for (let i = 1; i < 6; i++) {
-			const pokemon = await fetch('https://pokeapi.co/api/v2/pokemon/' + i).then((res) => {
-				return res.json();
-			});
-			console.log(pokemon.name);
-		}
-	} catch (error) {
+export async function traer_api() {
+	try{
+		const star = await fetch("https://swapi.dev/api/people/").then((res)=>{
+			return res.json();
+		});
+		return star;
+	} catch (error){
 		console.log(error);
 	}
 }
