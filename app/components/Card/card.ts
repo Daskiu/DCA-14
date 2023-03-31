@@ -25,7 +25,7 @@ class Card extends HTMLElement{
         this.render();
     }
 
-    attributeChangeCallback(
+    attributeChangedCallback(
         propName: Attribute,
         _: string | undefined,
         newValue: string | undefined
@@ -43,7 +43,7 @@ class Card extends HTMLElement{
             this.shadowRoot.innerHTML =`
             <section>
                 <h1>Name: ${this.name}</h1>
-                <p>Height: ${this.height} Kg</p>
+                <p>Height: ${this.height} cm</p>
             </section>
             `;
         }

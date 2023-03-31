@@ -12,13 +12,14 @@ class AppContainer extends HTMLElement{
 
     async connectedCallback(){
         const dataStar = await traer_api();
-        dataStar.results.forEach((data: any)=>{
+        dataStar.forEach((data: any)=>{
             console.log(data);
         });
 
-        dataStar.resaults.forEach((data: any)=>{
+        dataStar.forEach((data: any)=>{
             const StarCard = this.ownerDocument.createElement("my-card") as Card;
             StarCard.setAttribute(Attribute.name, data.name);
+            console.log(data.name)
             StarCard.setAttribute(Attribute.height, data.height);
             this.StarList.push(StarCard);
         });
@@ -28,7 +29,7 @@ class AppContainer extends HTMLElement{
     render(StarList: any){
         const StarCards = this.ownerDocument.createElement("section")
         StarCards.className = "StarSection"
-        this.StarList.forEach((StarCard)=>{
+        StarList.forEach((StarCard:any)=>{
             StarCards.appendChild(StarCard)
         });
         this.shadowRoot?.appendChild(StarCards);
